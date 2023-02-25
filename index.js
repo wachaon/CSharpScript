@@ -16,7 +16,6 @@ if (isCLI(__filename)) {
     execScript,
     execSource,
     compile,
-    pkg: __dirname
 }
 
 // methods
