@@ -48,7 +48,6 @@ Add-Type -Language CSharp -TypeDefinition $Source
 }
 
 function compile(input, options = {}) {
-    console.log(() => options)
     options.out = toWin32Sep(
         resolve(
             process.cwd(),
@@ -69,8 +68,6 @@ function compile(input, options = {}) {
     })(opts)
 
     const command = `${getCompiler()} ${params.join(" ")} ${toWin32Sep(resolve(process.cwd(), input))}`
-
-    console.log(() => command)
     console.log(execCommand(command))
 }
 
