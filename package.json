@@ -1,0 +1,22 @@
+{
+  "name": "csharpscript",
+  "version": "0.0.1",
+  "description": "csharp script",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "wes bundle usage/example.cs usage/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wachaon/csharpscript.git"
+  },
+  "keywords": [
+    "csharp"
+  ],
+  "author": "wachaon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wachaon/csharpscript/issues"
+  },
+  "homepage": "https://github.com/wachaon/csharpscript#readme"
+}
