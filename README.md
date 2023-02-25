@@ -40,6 +40,10 @@ wes install @wachaon/csharpscript --bare
 | `Method` | `{String}` | 実行するメソッド名 |
 | `params` | `{any}` | メソッドに渡す引数 |
 
+## `pkg`
+
+*csharpscript* があるディレクトリのパス。
+*csharpscript* を内包したパッケージを作成する際に必要になります。
 
 ## *csharpscript* を内包したパッケージを作成する
 
@@ -50,11 +54,22 @@ current_directory ┬ wes_modules ─ csharpscript ─ index.js
                   └ index.js
 ```
 
+```csharp:current_directory/src/foo.js
+// current_directory/src/foo.js
+using System;
 
-```javasctip:current_directory/index.js
-const { compile } = require('csharpscript')
+public class Foo {
+    public static void Main (params string[] args) {
+        Console.WriteLine(args[0]);
+    }
+}
+```
+
+```javascript:current_directory/index.js
+// current_directory/index.js
+const { execScript } = require('csharpscript')
 const { resolve } = require('pathname')
 
-const foo_cs = resovle(__dirname, 'src/foo.cs')
-
+const foo_cs = resolve(__dirname, 'src/foo.cs')
+console.log(execScript(foo_cs, 'Foo', 'Main', 'Hello World'))
 ```
