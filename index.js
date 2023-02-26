@@ -68,7 +68,10 @@ function compile(input, options = {}) {
     })(opts)
 
     const command = `${getCompiler()} ${params.join(" ")} ${toWin32Sep(resolve(process.cwd(), input))}`
-    console.log(execCommand(command))
+    const result = execCommand(command)
+
+    if (isCLI(__filename)) console.log(result)
+    else return result
 }
 
 // util
